@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClientDrive Pro - Your Ultimate Vehicle Management App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for app buttons */
+        .app-button {
+            @apply flex items-center justify-center px-6 py-3 rounded-full text-lg font-semibold shadow-md transition duration-300 ease-in-out transform hover:scale-105;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 px-6 sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo - ClientDrive Pro -->
+            <a href="#home" class="flex items-center space-x-2">
+                <img src="https://drive.google.com/uc?export=view&id=1vjSieDDrk7tntttBgvc4r1w41TrCzn_-" alt="ClientDrive Pro Logo" class="h-10 w-auto rounded-lg">
+                <span class="text-2xl font-bold text-gray-900">ClientDrive Pro</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Home</a>
+                <a href="#features" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Features</a>
+                <a href="#maintenance-ai" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Maintenance AI</a>
+                <a href="#claims-ai" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Claims AI</a>
+                <a href="#benefits" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Benefits</a>
+                <a href="#download" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Download</a>
+                <a href="#contact" class="text-gray-600 hover:text-red-600 font-medium px-3 py-2 rounded-md transition duration-300 ease-in-out">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#home" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Home</a>
+            <a href="#features" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Features</a>
+            <a href="#maintenance-ai" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Maintenance AI</a>
+            <a href="#claims-ai" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Claims AI</a>
+            <a href="#benefits" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Benefits</a>
+            <a href="#download" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Download</a>
+            <a href="#contact" class="block text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-md transition duration-300 ease-in-out">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-red-600 to-red-800 text-white py-20 md:py-32 flex items-center justify-center min-h-screen-75 rounded-b-2xl shadow-xl overflow-hidden">
+        <div class="container mx-auto text-center px-6 z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                ClientDrive Pro: Your Vehicle's Entire Life, In Your Pocket.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+                Manage service history, track fuel, ensure safety, and get instant emergency assistance.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#download" class="app-button bg-white text-red-700 hover:bg-gray-100">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 9.75a.75.75 0 00-1.5 0v.255c0 2.937-2.357 5.307-5.292 5.307-.942 0-1.85-.255-2.636-.748a.75.75 0 10-.783 1.238 6.78 6.78 0 003.419 1.01c3.923 0 7.11-3.104 7.11-6.93V9.75zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 13.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+                    Download on the App Store
+                </a>
+                <a href="#download" class="app-button bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-700">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 3.75a.75.75 0 00-1.5 0v.255c0 2.937 2.357 5.307 5.292 5.307.942 0 1.85-.255 2.636-.748a.75.75 0 10.783 1.238 6.78 6.78 0 00-3.419 1.01c-3.923 0-7.11-3.104-7.11-6.93V3.75zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.5 13.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+                    Get it on Google Play
+                </a>
+            </div>
+        </div>
+        <!-- Abstract background shapes for visual interest -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <circle cx="20" cy="20" r="15" fill="white" opacity="0.1"></circle>
+                <circle cx="80" cy="70" r="20" fill="white" opacity="0.1"></circle>
+                <rect x="50" y="10" width="10" height="40" fill="white" opacity="0.05" transform="rotate(45 55 30)"></rect>
+                <rect x="10" y="60" width="15" height="15" fill="white" opacity="0.08" transform="rotate(20 17.5 67.5)"></rect>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Powerful Features, Total Control</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Feature 1: Vehicle Profile & Condition -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=CAR" alt="Vehicle Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Comprehensive Vehicle Profile</h3>
+                    <p class="text-gray-700 leading-relaxed">Store all your vehicle's vital details, from VIN and registration to real-time condition photos and maintenance needs. Always up-to-date, always accessible.</p>
+                </div>
+
+                <!-- Feature 2: Service & Maintenance Logs -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=TOOLS" alt="Tools Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Digital Service History</h3>
+                    <p class="text-gray-700 leading-relaxed">Keep a meticulous digital record of every service, repair, and part replacement. Share with workshops or potential buyers with ease.</p>
+                </div>
+
+                <!-- Feature 3: Fuel Tracking & Efficiency -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=FUEL" alt="Fuel Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Intelligent Fuel Management</h3>
+                    <p class="text-gray-700 leading-relaxed">Log fuel consumption, track costs, and gain insights into your vehicle's efficiency over time. Optimize your driving habits.</p>
+                </div>
+
+                <!-- Feature 4: Emergency & Accident Management -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=EMERG" alt="Emergency Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Emergency & Accident Support</h3>
+                    <p class="text-gray-700 leading-relaxed">Access critical medical information and emergency contacts instantly. Document accident scenes with geo-tagged photos for insurance claims.</p>
+                </div>
+
+                <!-- Feature 5: Asset Security & Location -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=LOCK" alt="Security Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Enhanced Asset Security</h3>
+                    <p class="text-gray-700 leading-relaxed">Real-time location tracking and verified status updates for financed vehicles, providing peace of mind for owners and financial institutions.</p>
+                </div>
+
+                <!-- Feature 6: Workshop Integration (for NSA) -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md flex flex-col items-center text-center transform hover:scale-105 transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/80x80/B91C1C/FFF?text=WRENCH" alt="Workshop Icon" class="mb-6 rounded-full">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Seamless Workshop Connection</h3>
+                    <p class="text-gray-700 leading-relaxed">Connect directly with NSA-approved workshops, share digital records, and streamline your service appointments.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Maintenance Schedule Section -->
+    <section id="maintenance-ai" class="py-16 md:py-24 bg-red-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 flex items-center justify-center">
+                AI-Powered Maintenance Schedule ✨
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+                Get a personalized maintenance schedule for your vehicle based on its make, model, year, and current mileage.
+            </p>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="vehicleMake" class="block text-left text-gray-700 text-sm font-medium mb-2">Vehicle Make</label>
+                        <input type="text" id="vehicleMake" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="e.g., Toyota">
+                    </div>
+                    <div>
+                        <label for="vehicleModel" class="block text-left text-gray-700 text-sm font-medium mb-2">Vehicle Model</label>
+                        <input type="text" id="vehicleModel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="e.g., Corolla">
+                    </div>
+                    <div>
+                        <label for="vehicleYear" class="block text-left text-gray-700 text-sm font-medium mb-2">Vehicle Year</label>
+                        <input type="number" id="vehicleYear" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="e.g., 2020">
+                    </div>
+                    <div>
+                        <label for="currentMileage" class="block text-left text-gray-700 text-sm font-medium mb-2">Current Mileage (km)</label>
+                        <input type="number" id="currentMileage" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="e.g., 60000">
+                    </div>
+                </div>
+                <button id="generateMaintenance"
+                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                    Generate Schedule
+                </button>
+
+                <div id="maintenanceLoading" class="hidden mt-4 text-red-600 font-medium">
+                    <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating maintenance schedule...
+                </div>
+
+                <div id="maintenanceResults" class="mt-6 p-4 bg-white border border-gray-200 rounded-md text-left hidden">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Suggested Maintenance Schedule:</h3>
+                    <p id="maintenanceText" class="text-gray-700 whitespace-pre-wrap"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Claim Assistant Section -->
+    <section id="claims-ai" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12 flex items-center justify-center">
+                Insurance Claim Assistant ✨
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+                Describe your incident, and our AI will guide you on what information to collect for an insurance claim.
+            </p>
+            <div class="max-w-xl mx-auto bg-red-50 p-8 rounded-xl shadow-md">
+                <textarea id="incidentDescription"
+                          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 mb-4 resize-y min-h-[150px]"
+                          placeholder="e.g., 'I was involved in a minor fender bender in a parking lot. My front bumper has a scratch, and the other car has a dent on its rear door.'"></textarea>
+                <button id="getClaimGuidance"
+                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                    Get Claim Guidance
+                </button>
+
+                <div id="claimsLoading" class="hidden mt-4 text-red-600 font-medium">
+                    <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating claim guidance...
+                </div>
+
+                <div id="claimsResults" class="mt-6 p-4 bg-white border border-gray-200 rounded-md text-left hidden">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Claim Guidance:</h3>
+                    <p id="claimsText" class="text-gray-700 whitespace-pre-wrap"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 md:py-24 bg-red-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Why ClientDrive Pro? Real Benefits, Real Peace of Mind.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-red-700 mb-4">For Vehicle Owners:</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
+                        <li>**Unmatched Safety:** Critical medical and emergency data accessible instantly in an accident.</li>
+                        <li>**Complete Control:** All vehicle records, service history, and fuel logs in one secure place.</li>
+                        <li>**Cost Savings:** Better maintenance tracking and fraud prevention can save you money.</li>
+                        <li>**Enhanced Resale Value:** A verifiable, complete digital history adds value to your vehicle.</li>
+                        <li>**Peace of Mind:** Knowing you're prepared for anything on the road.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/FEE2E2/B91C1C?text=Happy+Owner" alt="Happy Vehicle Owner" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16 md:mt-24">
+                <div>
+                    <img src="https://placehold.co/600x400/FEE2E2/B91C1C?text=Efficient+Workshop" alt="Efficient Workshop" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-red-700 mb-4">For Workshops & Service Providers:</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
+                        <li>**Streamlined Operations:** Instant access to accurate vehicle history reduces diagnostic time.</li>
+                        <li>**Improved Client Trust:** Transparent record-keeping builds stronger customer relationships.</li>
+                        <li>**New Client Acquisition:** Connect with a growing base of ClientDrive Pro users.</li>
+                        <li>**Enhanced Data Accuracy:** Photo-verified condition reports minimize disputes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-16 md:py-24 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Get ClientDrive Pro Today!</h2>
+            <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                Download the app for free on your preferred app store and take control of your vehicle's future.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+                <a href="#" class="app-button bg-red-700 text-white hover:bg-red-800">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 9.75a.75.75 0 00-1.5 0v.255c0 2.937-2.357 5.307-5.292 5.307-.942 0-1.85-.255-2.636-.748a.75.75 0 10-.783 1.238 6.78 6.78 0 003.419 1.01c3.923 0 7.11-3.104 7.11-6.93V9.75zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 13.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+                    App Store
+                </a>
+                <a href="#" class="app-button bg-gray-800 text-white hover:bg-gray-900">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 3.75a.75.75 0 00-1.5 0v.255c0 2.937 2.357 5.307 5.292 5.307.942 0 1.85-.255 2.636-.748a.75.75 0 10.783 1.238 6.78 6.78 0 00-3.419 1.01c-3.923 0-7.11-3.104-7.11-6.93V3.75zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.5 13.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+                    Google Play
+                </a>
+            </div>
+            <p class="text-gray-600 text-sm">
+                Scan the QR code to download directly:
+            </p>
+            <img src="https://placehold.co/150x150/E5E7EB/4B5563?text=QR+Code" alt="QR Code for App Download" class="mx-auto mt-4 rounded-lg shadow-md">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Questions? We're Here to Help.</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Reach out to the ClientDrive Pro support team for any inquiries about the app.
+            </p>
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-md">
+                <form class="space-y-6">
+                    <div>
+                        <label for="contactName" class="block text-left text-gray-700 text-sm font-medium mb-2">Your Name</label>
+                        <input type="text" id="contactName" name="contactName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label for="contactEmail" class="block text-left text-gray-700 text-sm font-medium mb-2">Your Email</label>
+                        <input type="email" id="contactEmail" name="contactEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div>
+                        <label for="contactSubject" class="block text-left text-gray-700 text-sm font-medium mb-2">Subject</label>
+                        <input type="text" id="contactSubject" name="contactSubject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="App Support / General Inquiry" required>
+                    </div>
+                    <div>
+                        <label for="contactMessage" class="block text-left text-gray-700 text-sm font-medium mb-2">Your Message</label>
+                        <textarea id="contactMessage" name="contactMessage" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out" placeholder="Tell us how we can help..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-red-700 text-white hover:bg-red-800 px-6 py-3 rounded-lg text-lg font-semibold shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Send Message
+                    </button>
+                </form>
+                <div class="mt-8 text-gray-700 space-y-2">
+                    <p class="flex items-center justify-center"><svg class="w-5 h-5 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.987 9.897l.77-.77a4 4 0 11-.692-6.495l-.77-.77a6 6 0 001.679-1.855zM10 18a8 8 0 100-16 8 8 0 000 16zM8 10a2 2 0 114 0 2 2 0 01-4 0z" clip-rule="evenodd"></path></svg> clientdrivepro@gmail.com</p>
+                    <p class="flex items-center justify-center"><svg class="w-5 h-5 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg> +27-69-112-8036</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 px-6 rounded-t-2xl">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2025 ClientDrive Pro. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Privacy Policy</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Terms of Service</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://www.nationalalignedsolutions.com" target="_blank" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Part of National Aligned Solutions</a>
+            </div>
+            <div class="mt-6 flex justify-center space-x-4">
+                <!-- Placeholder Social Media Icons (replace with actual SVG/Font Awesome) -->
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.646.777-1.646 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048.843.04 1.15.14 1.406.276.481.205.855.434 1.21.8.355.36.585.734.798 1.21.137.256.236.563.276 1.407.045 1.013.048 1.371.048 3.797v.655c0 2.43-.003 2.784-.048 3.797-.04.843-.14 1.15-.276 1.406-.205.481-.434.855-.8 1.21-.36.355-.734.585-1.21-.798-.256.137-.563-.236-1.407-.276-1.013-.045-1.371-.048-3.797-.048h-.655c-2.43 0-2.784-.003-3.797-.048-.843-.04-1.15-.14-.276-1.406-.481-.205-.855-.434-1.21-.8-.355-.36-.585-.734-.798-1.21-.137-.256-.236-.563-.276-1.407-.045-1.013-.048-1.371-.048-3.797v-.655c0-2.43.003-2.784.048-3.797.04-.843.14-1.15.276-1.406.205-.481.434-.855.8-1.21.36-.355.734-.585 1.21-.798.256-.137.563-.236 1.407-.276 1.013-.045 1.371-.048 3.797-.048h.655zm.962 11.814a6 6 0 100-12 6 6 0 000 12zm0 2A8 8 0 1012 4a8 8 0 000 16zm5.338-12.879a.975.975 0 00-.975-.975h-.01c-.546 0-.99.444-.99.99 0 .546.444.99.99.99h.01c.546 0 .975-.444.975-.99z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.107 4.107 0 001.27 5.477A4.072 4.072 0 012 10.425v.053a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.007a11.616 11.616 0 006.29 1.844" /></svg>
+                </a>
+                <!-- Add more social icons as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle and AI Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                document.querySelectorAll('#mobile-menu a').forEach(item => {
+                    item.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // AI-Powered Maintenance Schedule Generator
+            const vehicleMakeInput = document.getElementById('vehicleMake');
+            const vehicleModelInput = document.getElementById('vehicleModel');
+            const vehicleYearInput = document.getElementById('vehicleYear');
+            const currentMileageInput = document.getElementById('currentMileage');
+            const generateMaintenanceButton = document.getElementById('generateMaintenance');
+            const maintenanceLoading = document.getElementById('maintenanceLoading');
+            const maintenanceResults = document.getElementById('maintenanceResults');
+            const maintenanceText = document.getElementById('maintenanceText');
+
+            if (generateMaintenanceButton) {
+                generateMaintenanceButton.addEventListener('click', async () => {
+                    const make = vehicleMakeInput.value.trim();
+                    const model = vehicleModelInput.value.trim();
+                    const year = vehicleYearInput.value.trim();
+                    const mileage = currentMileageInput.value.trim();
+
+                    if (!make || !model || !year || !mileage) {
+                        maintenanceText.textContent = 'Please fill in all vehicle details to generate a schedule.';
+                        maintenanceResults.classList.remove('hidden');
+                        return;
+                    }
+
+                    maintenanceLoading.classList.remove('hidden');
+                    maintenanceResults.classList.add('hidden');
+                    maintenanceText.textContent = '';
+                    generateMaintenanceButton.disabled = true;
+
+                    try {
+                        let chatHistory = [];
+                        const prompt = `As a vehicle maintenance expert, generate a typical maintenance schedule for a ${year} ${make} ${model} with current mileage of ${mileage} km. Provide a concise, professional schedule, listing common service intervals and what should be checked/replaced. Focus on key milestones (e.g., every 10,000 km or annually, major services at 60,000 km, 120,000 km etc.).`;
+
+                        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                        const payload = {
+                            contents: chatHistory,
+                            generationConfig: {
+                                temperature: 0.7,
+                                maxOutputTokens: 800
+                            }
+                        };
+
+                        const apiKey = ""; // API key automatically provided by Canvas
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            maintenanceText.textContent = text;
+                            maintenanceResults.classList.remove('hidden');
+                        } else {
+                            maintenanceText.textContent = 'Could not generate maintenance schedule. Please try again or provide more details.';
+                            maintenanceResults.classList.remove('hidden');
+                            console.error('Gemini API response structure unexpected:', result);
+                        }
+
+                    } catch (error) {
+                        maintenanceText.textContent = 'An error occurred during schedule generation. Please try again later.';
+                        maintenanceResults.classList.remove('hidden');
+                        console.error('Error calling Gemini API for maintenance:', error);
+                    } finally {
+                        maintenanceLoading.classList.add('hidden');
+                        generateMaintenanceButton.disabled = false;
+                    }
+                });
+            }
+
+            // Insurance Claim Assistant
+            const incidentDescriptionInput = document.getElementById('incidentDescription');
+            const getClaimGuidanceButton = document.getElementById('getClaimGuidance');
+            const claimsLoading = document.getElementById('claimsLoading');
+            const claimsResults = document.getElementById('claimsResults');
+            const claimsText = document.getElementById('claimsText');
+
+            if (getClaimGuidanceButton) {
+                getClaimGuidanceButton.addEventListener('click', async () => {
+                    const description = incidentDescriptionInput.value.trim();
+
+                    if (!description) {
+                        claimsText.textContent = 'Please describe the incident to get claim guidance.';
+                        claimsResults.classList.remove('hidden');
+                        return;
+                    }
+
+                    claimsLoading.classList.remove('hidden');
+                    claimsResults.classList.add('hidden');
+                    claimsText.textContent = '';
+                    getClaimGuidanceButton.disabled = true;
+
+                    try {
+                        let chatHistory = [];
+                        const prompt = `As an insurance claim assistant for ClientDrive Pro, provide guidance on what information a user should collect for an insurance claim based on the following incident description. Be concise and list key points (e.g., photos, witness info, police report, other party details).
+
+Incident Description: ${description}
+
+Please format your response clearly with bullet points.`;
+
+                        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                        const payload = {
+                            contents: chatHistory,
+                            generationConfig: {
+                                temperature: 0.7,
+                                maxOutputTokens: 500
+                            }
+                        };
+
+                        const apiKey = ""; // API key automatically provided by Canvas
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            claimsText.textContent = text;
+                            claimsResults.classList.remove('hidden');
+                        } else {
+                            claimsText.textContent = 'Could not generate claim guidance. Please try again or rephrase your description.';
+                            claimsResults.classList.remove('hidden');
+                            console.error('Gemini API response structure unexpected:', result);
+                        }
+
+                    } catch (error) {
+                        claimsText.textContent = 'An error occurred during claim guidance generation. Please try again later.';
+                        claimsResults.classList.remove('hidden');
+                        console.error('Error calling Gemini API for claims:', error);
+                    } finally {
+                        claimsLoading.classList.add('hidden');
+                        getClaimGuidanceButton.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
